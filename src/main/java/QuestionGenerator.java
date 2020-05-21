@@ -6,8 +6,17 @@ public class QuestionGenerator {
 
     Random random = new Random();
 
+
+
+    private int solvedQuestions=0;
     private int solution = 2;
     private String questionstring = "1 + 1 = ";
+
+    private int maxAddition=50;
+    private int maxSubstraction=10;
+    private int maxMultiplication=10;
+    private int maxDivision=10;
+
 
 
     public void generateNewQuestion() {
@@ -69,6 +78,14 @@ public class QuestionGenerator {
 
     public String getQuestionstring() {
         return questionstring;
+    }
+
+    public int getSolvedQuestions() {
+        return solvedQuestions;
+    }
+
+    public void countSolvedQuestionOneUp() {
+        solvedQuestions++;
     }
 
 

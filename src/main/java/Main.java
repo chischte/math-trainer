@@ -23,6 +23,8 @@ public class Main {
             if (userAnswer == generator.getSolution()) {
                 System.out.println("CORRECT!");
                 generator.generateNewQuestion();
+                generator.countSolvedQuestionOneUp();
+                System.out.println("Number of solved questions: " +generator.getSolvedQuestions());
             }
             else{
                 System.out.println("WRONG!");
