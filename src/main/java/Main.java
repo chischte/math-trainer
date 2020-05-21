@@ -10,10 +10,11 @@ public class Main {
         QuestionGenerator generator=new QuestionGenerator();
 
         // GET INITIAL QUESTION
-        System.out.println(generator.getQuestionstring());
+        generator.generateNewQuestion();
+
 
         while (true) {
-
+            System.out.println(generator.getQuestionstring());
             // GET USER RESPONSE
             String name = scanner.nextLine();
             int userAnswer = Integer.parseInt(name);
@@ -21,7 +22,7 @@ public class Main {
             // CHECK IF ANSWER IS CORRECT
             if (userAnswer == generator.getSolution()) {
                 System.out.println("CORRECT!");
-                //GET NEW QUESTION
+                generator.generateNewQuestion();
             }
             else{
                 System.out.println("WRONG!");
