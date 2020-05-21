@@ -7,9 +7,10 @@ public class Main {
     public static void main(String[] args) {
         boolean stayInLoop = true;
         Scanner scanner = new Scanner(System.in);
+        QuestionGenerator generator=new QuestionGenerator();
 
         // GET INITIAL QUESTION
-        System.out.println("1+1=");
+        System.out.println(generator.getQuestionstring());
 
         while (true) {
 
@@ -18,7 +19,7 @@ public class Main {
             int userAnswer = Integer.parseInt(name);
 
             // CHECK IF ANSWER IS CORRECT
-            if (userAnswer == 2) {
+            if (userAnswer == generator.getSolution()) {
                 System.out.println("CORRECT!");
                 //GET NEW QUESTION
             }
