@@ -7,10 +7,13 @@ public class CalculationGenerator {
     Random random = new Random();
 
     private int noOfCalculations = 10;
+    private int remainingCalculations=noOfCalculations;
 
-    private int noOfErrors=0;
-    private int solution=0;
-    private String questionString="";
+    private int noOfErrors = 0;
+    private int solution = 0;
+    private long startTime = 0;
+    private boolean stopwatchStarted = false;
+    private String questionString = "";
 
     // CONFIGURE THE RANGE OF POSSIBLE CALCULATIONS:
     private int maxAddendMaxSum = 20;
@@ -48,7 +51,7 @@ public class CalculationGenerator {
 
     private void generateSubstraction() {
         int firstOperand = random.nextInt(maxMinuendMaxSubstrahend + 1);
-        int secondOperand = random.nextInt(firstOperand+1);
+        int secondOperand = random.nextInt(firstOperand + 1);
         int solution = firstOperand - secondOperand;
         this.solution = solution;
         String questionString = (firstOperand + " - " + secondOperand + " = ");
@@ -83,11 +86,11 @@ public class CalculationGenerator {
     }
 
     public int getNoOfRemainingCalculations() {
-        return noOfCalculations;
+        return remainingCalculations;
     }
 
     public void countRemainingCalculationsOneDown() {
-        noOfCalculations--;
+        remainingCalculations--;
     }
 
     public int getNoOfErrors() {
@@ -97,14 +100,19 @@ public class CalculationGenerator {
     public void countNoOfErrorsOneUp() {
         noOfErrors++;
     }
-    public void startStopwatch(){
 
+    public void startStopwatch() {
+        if (!stopwatchStarted) {
+            startTime = System.currentTimeMillis();
+            stopwatchStarted = true;
+        }
     }
 
-    public int getSolutionRate(){
-        int solutionRate=50;
+    public int getSolutionRate() {
+        //[cpm] [calculations per minute]
+        long timeElapsed = System.currentTimeMillis() - startTime;
+        int solutionRate = (int) (long) (60000 / (timeElapsed / noOfCalculations));
         return solutionRate;
-
     }
 
 

@@ -3,7 +3,7 @@ package main.java;
 import java.util.Scanner;
 
 // TODO: Make sound when correct
-// TODO: Stop time, calculate speed in calcs/minute
+// TODO: Permanently inform of the current solution rate
 
 public class Main {
 
@@ -30,8 +30,10 @@ public class Main {
                 System.out.println("Invalid entry: " + nfe.getMessage());
             }
 
-            // CHECK IF ANSWER IS CORRECT
             generator.startStopwatch();
+
+            // CHECK IF ANSWER IS CORRECT
+
             if (userAnswer == generator.getSolution()) {
                 System.out.print("CORRECT! *");
                 generator.generateNewCalculation();
@@ -43,10 +45,9 @@ public class Main {
                 generator.countNoOfErrorsOneUp();
             }
         }
-        System.out.println("CONGRATLATIONS! YOU DID IT!");
+        System.out.println("CONGRATULATIONS! YOU DID IT !!! :-)");
         System.out.print("YOU HAD A SOLUTION RATE OF " + generator.getSolutionRate());
         System.out.println(" CALCULATIONS PER MINUTE");
         System.out.println("YOU MADE " + generator.getNoOfErrors() + " ERRORS.");
-
     }
 }
