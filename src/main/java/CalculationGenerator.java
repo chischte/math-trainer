@@ -2,20 +2,22 @@ package main.java;
 
 import java.util.Random;
 
-public class QuestionGenerator {
+public class CalculationGenerator {
 
     Random random = new Random();
 
-    private int solvedQuestions = 0;
-    private int solution = 2;
-    private String questionstring = "1 + 1 = ";
+    private int noOfCalculations = 10;
+    private int noOfErrors=0;
+    private int solution=0;
+    private String questionString="";
 
-    private int maxAddend = 100;
-    private int maxSum = maxAddend;
-    private int maxMinuendSubstrahend = 20;
+    // CONFIGURE THE RANGE OF POSSIBLE CALCULATIONS:
+    private int maxAddendMaxSum = 20;
+    private int maxMinuendMaxSubstrahend = 20;
     private int maxFactor = 10;
     private int maxDividendMaxQuotient = 10;
-    public void generateNewQuestion() {
+
+    public void generateNewCalculation() {
         int noOfOperations = 4;
         int operation = random.nextInt(noOfOperations);
 
@@ -34,22 +36,22 @@ public class QuestionGenerator {
     }
 
     private void generateAddition() {
-        int firstOperand = random.nextInt(maxAddend + 1);
-        int maxSecondOperand = maxSum - firstOperand;
+        int firstOperand = random.nextInt(maxAddendMaxSum + 1);
+        int maxSecondOperand = maxAddendMaxSum - firstOperand;
         int secondOperand = random.nextInt(maxSecondOperand + 1);
         int solution = firstOperand + secondOperand;
         this.solution = solution;
         String questionString = (firstOperand + " + " + secondOperand + " = ");
-        this.questionstring = questionString;
+        this.questionString = questionString;
     }
 
     private void generateSubstraction() {
-        int firstOperand = random.nextInt(maxMinuendSubstrahend + 1);
+        int firstOperand = random.nextInt(maxMinuendMaxSubstrahend + 1);
         int secondOperand = random.nextInt(firstOperand+1);
         int solution = firstOperand - secondOperand;
         this.solution = solution;
         String questionString = (firstOperand + " - " + secondOperand + " = ");
-        this.questionstring = questionString;
+        this.questionString = questionString;
     }
 
     private void generateMultiplication() {
@@ -58,16 +60,17 @@ public class QuestionGenerator {
         int solution = firstOperand * secondOperand;
         this.solution = solution;
         String questionString = (firstOperand + " x " + secondOperand + " = ");
-        this.questionstring = questionString;
+        this.questionString = questionString;
     }
 
     private void generateDivision() {
-        int firstOperand = random.nextInt(maxDividendMaxQuotient + 1);
-        int secondOperand = random.nextInt(maxDividendMaxQuotient) + 1; // to avoid division by zero
-        int solution = firstOperand * secondOperand;
-        this.solution = firstOperand;
-        String questionString = (solution + " : " + secondOperand + " = ");
-        this.questionstring = questionString;
+        // divisor : dividend = quotient
+        int quotient = random.nextInt(maxDividendMaxQuotient + 1);
+        int dividend = random.nextInt(maxDividendMaxQuotient) + 1; // to avoid division by zero
+        int divisor = quotient * dividend;
+        this.solution = quotient;
+        String questionString = (divisor + " : " + dividend + " = ");
+        this.questionString = questionString;
     }
 
     public int getSolution() {
@@ -75,15 +78,15 @@ public class QuestionGenerator {
     }
 
     public String getQuestionstring() {
-        return questionstring;
+        return questionString;
     }
 
-    public int getSolvedQuestions() {
-        return solvedQuestions;
+    public int getNoOfRemainingCalculations() {
+        return noOfCalculations;
     }
 
-    public void countSolvedQuestionOneUp() {
-        solvedQuestions++;
+    public void countRemainingCalculationsOneDown() {
+        noOfCalculations--;
     }
 
 

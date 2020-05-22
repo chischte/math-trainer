@@ -10,12 +10,13 @@ public class Main {
     public static void main(String[] args) {
         boolean stayInLoop = true;
         Scanner scanner = new Scanner(System.in);
-        QuestionGenerator generator = new QuestionGenerator();
+        CalculationGenerator generator = new CalculationGenerator();
+        int noOfRemainingCalculations=generator.getNoOfRemainingCalculations();
 
         // GET INITIAL QUESTION
-        generator.generateNewQuestion();
+        generator.generateNewCalculation();
 
-        while (true) {
+        while (noOfRemainingCalculations>0) {
             System.out.println(generator.getQuestionstring());
 
             // GET USER RESPONSE
@@ -31,13 +32,15 @@ public class Main {
 
             // CHECK IF ANSWER IS CORRECT
             if (userAnswer == generator.getSolution()) {
-                System.out.println("CORRECT!");
-                generator.generateNewQuestion();
-                generator.countSolvedQuestionOneUp();
-                System.out.println("Number of solved questions: " + generator.getSolvedQuestions());
+                System.out.print("CORRECT! * ");
+                generator.generateNewCalculation();
+                generator.countRemainingCalculationsOneDown();
+                noOfRemainingCalculations=generator.getNoOfRemainingCalculations();
+                System.out.println(noOfRemainingCalculations + " * CALCULATIONS REMAINING");
             } else {
-                System.out.println("WRONG!");
+                System.out.println("WRONG! ...TRY AGAIN: ");
             }
         }
+        System.out.println("CONGRATLATIONS! YOU DID IT!");
     }
 }
