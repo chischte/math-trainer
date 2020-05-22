@@ -7,6 +7,7 @@ public class CalculationGenerator {
     Random random = new Random();
 
     private int noOfCalculations = 10;
+
     private int noOfErrors=0;
     private int solution=0;
     private String questionString="";
@@ -87,6 +88,23 @@ public class CalculationGenerator {
 
     public void countRemainingCalculationsOneDown() {
         noOfCalculations--;
+    }
+
+    public int getNoOfErrors() {
+        return noOfErrors;
+    }
+
+    public void countNoOfErrorsOneUp() {
+        noOfErrors++;
+    }
+    public void startStopwatch(){
+
+    }
+
+    public int getSolutionRate(){
+        int solutionRate=50;
+        return solutionRate;
+
     }
 
 
