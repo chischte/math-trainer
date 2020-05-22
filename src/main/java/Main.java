@@ -29,7 +29,6 @@ public class Main {
                 System.out.println("Invalid entry: " + nfe.getMessage());
             }
 
-
             // CHECK IF ANSWER IS CORRECT
             if (userAnswer == generator.getSolution()) {
                 System.out.println("CORRECT!");

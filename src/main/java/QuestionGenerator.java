@@ -10,12 +10,11 @@ public class QuestionGenerator {
     private int solution = 2;
     private String questionstring = "1 + 1 = ";
 
-    private int maxAddend = 50; // = max addend
-    private int maxMinuendSubstahend = 10;
-    private int maxFactor;
-    private int maxDividendDivisor = 10;
-
-
+    private int maxAddend = 100;
+    private int maxSum = maxAddend;
+    private int maxMinuendSubstrahend = 20;
+    private int maxFactor = 10;
+    private int maxDividendMaxQuotient = 10;
     public void generateNewQuestion() {
         int noOfOperations = 4;
         int operation = random.nextInt(noOfOperations);
@@ -36,7 +35,8 @@ public class QuestionGenerator {
 
     private void generateAddition() {
         int firstOperand = random.nextInt(maxAddend + 1);
-        int secondOperand = random.nextInt(maxAddend + 1);
+        int maxSecondOperand = maxSum - firstOperand;
+        int secondOperand = random.nextInt(maxSecondOperand + 1);
         int solution = firstOperand + secondOperand;
         this.solution = solution;
         String questionString = (firstOperand + " + " + secondOperand + " = ");
@@ -44,8 +44,8 @@ public class QuestionGenerator {
     }
 
     private void generateSubstraction() {
-        int firstOperand = random.nextInt(maxMinuendSubstahend + 1);
-        int secondOperand = random.nextInt(firstOperand) + 1;
+        int firstOperand = random.nextInt(maxMinuendSubstrahend + 1);
+        int secondOperand = random.nextInt(firstOperand+1);
         int solution = firstOperand - secondOperand;
         this.solution = solution;
         String questionString = (firstOperand + " - " + secondOperand + " = ");
@@ -62,8 +62,8 @@ public class QuestionGenerator {
     }
 
     private void generateDivision() {
-        int firstOperand = random.nextInt(maxDividendDivisor + 1);
-        int secondOperand = random.nextInt(maxDividendDivisor) + 1;
+        int firstOperand = random.nextInt(maxDividendMaxQuotient + 1);
+        int secondOperand = random.nextInt(maxDividendMaxQuotient) + 1; // to avoid division by zero
         int solution = firstOperand * secondOperand;
         this.solution = firstOperand;
         String questionString = (solution + " : " + secondOperand + " = ");
