@@ -2,6 +2,10 @@ package main.java;
 
 import java.util.Scanner;
 
+// TODO: Make sound when correct
+// TODO: Fix bug programm aborts when text entry or no entry
+// TODO: Stop time, calculate speed in calcs/minute
+
 public class Main {
 
     public static void main(String[] args) {
