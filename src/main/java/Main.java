@@ -19,9 +19,11 @@ public class Main {
 
         while (true) {
             System.out.println(generator.getQuestionstring());
+
             // GET USER RESPONSE
-            String name = scanner.nextLine();
-            int userAnswer = Integer.parseInt(name);
+            String userInput = scanner.nextLine();
+            int userAnswer = Integer.parseInt(userInput);
+
 
             // CHECK IF ANSWER IS CORRECT
             if (userAnswer == generator.getSolution()) {
