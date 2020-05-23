@@ -16,6 +16,11 @@ public class Main {
         // GET INITIAL QUESTION
         generator.generateNewCalculation();
 
+        System.out.println("PRESS ENTER TO START THE COMPETITION");
+        String startString = scanner.nextLine();
+        generator.startStopwatch();
+
+
         while (noOfRemainingCalculations > 0) {
             System.out.println(generator.getQuestionstring());
 
@@ -29,8 +34,6 @@ public class Main {
             } catch (NumberFormatException nfe) {
                 System.out.println("Invalid entry: " + nfe.getMessage());
             }
-
-            generator.startStopwatch();
 
             // CHECK IF ANSWER IS CORRECT
 

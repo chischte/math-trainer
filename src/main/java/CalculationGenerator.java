@@ -13,7 +13,7 @@ public class CalculationGenerator {
     private String questionString = "";
 
     // CONFIGURE THE TASK: ---------------------------
-    private int noOfCalculations = 30; // short: 30 long: 100
+    private int noOfCalculations = 20; // default: 20
     private int maxAddendMaxSum = 100; // default: 100
     private int maxMinuendMaxSubstrahend = 100; // default: 100
     private int maxFactor = 10; // default: 10
@@ -25,6 +25,7 @@ public class CalculationGenerator {
     public void generateNewCalculation() {
         int noOfOperations = 4;
         int operation = random.nextInt(noOfOperations);
+        //operation = 2;
 
         if (operation == 0) {
             generateAddition();
