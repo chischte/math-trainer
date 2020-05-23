@@ -6,20 +6,21 @@ public class CalculationGenerator {
 
     Random random = new Random();
 
-    private int noOfCalculations = 10;
-    private int remainingCalculations=noOfCalculations;
-
     private int noOfErrors = 0;
     private int solution = 0;
     private long startTime = 0;
     private boolean stopwatchStarted = false;
     private String questionString = "";
 
-    // CONFIGURE THE RANGE OF POSSIBLE CALCULATIONS:
-    private int maxAddendMaxSum = 20;
-    private int maxMinuendMaxSubstrahend = 20;
-    private int maxFactor = 10;
-    private int maxDividendMaxQuotient = 10;
+    // CONFIGURE THE TASK: ---------------------------
+    private int noOfCalculations = 30; // short: 30 long: 100
+    private int maxAddendMaxSum = 100; // default: 100
+    private int maxMinuendMaxSubstrahend = 100; // default: 100
+    private int maxFactor = 10; // default: 10
+    private int maxDividendMaxQuotient = 10; // default: 10
+    //--------------------------------------------------------------------------
+
+    private int remainingCalculations = noOfCalculations;
 
     public void generateNewCalculation() {
         int noOfOperations = 4;
