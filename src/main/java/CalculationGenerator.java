@@ -46,7 +46,6 @@ public class CalculationGenerator {
     private void generateCalculationByRandom() {
         int noOfOperations = 4;
         int operation = random.nextInt(noOfOperations);
-        operation = 2;
 
         if (operation == 0) {
             generateAddition();
