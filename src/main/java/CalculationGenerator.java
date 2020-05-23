@@ -11,7 +11,7 @@ public class CalculationGenerator {
     private long startTime = 0;
     private boolean stopwatchStarted = false;
     private String questionString = "";
-    private String operationMode="Random";
+    private String operationMode = "Random";
 
     // CONFIGURE THE TASK: ---------------------------
     private int noOfCalculations = 10; // default: 20
@@ -23,28 +23,27 @@ public class CalculationGenerator {
     private int remainingCalculations = noOfCalculations;
 
 
-
     public void generateNewCalculation() {
 
-        if(operationMode.equals("Random")){
+        if (operationMode.equals("Random")) {
             generateCalculationByRandom();
         }
-        if(operationMode.equals("Addition")){
+        if (operationMode.equals("Addition")) {
             generateAddition();
         }
-        if(operationMode.equals("Substraction")){
+        if (operationMode.equals("Substraction")) {
             generateSubstraction();
         }
-        if(operationMode.equals("Multiplication")){
+        if (operationMode.equals("Multiplication")) {
             generateMultiplication();
         }
-        if(operationMode.equals("Division")){
+        if (operationMode.equals("Division")) {
             generateDivision();
         }
 
     }
 
-    private void generateCalculationByRandom(){
+    private void generateCalculationByRandom() {
         int noOfOperations = 4;
         int operation = random.nextInt(noOfOperations);
         operation = 2;
@@ -63,9 +62,9 @@ public class CalculationGenerator {
         }
     }
 
-    public void setNoOfCalculations(String noOfCalculations){
-        this.noOfCalculations=Integer.parseInt(noOfCalculations);
-        this.remainingCalculations=this.noOfCalculations;
+    public void setNoOfCalculations(String noOfCalculations) {
+        this.noOfCalculations = Integer.parseInt(noOfCalculations);
+        this.remainingCalculations = this.noOfCalculations;
     }
 
     private void generateAddition() {
@@ -131,10 +130,7 @@ public class CalculationGenerator {
     }
 
     public void startStopwatch() {
-        if (!stopwatchStarted) {
-            startTime = System.currentTimeMillis();
-            stopwatchStarted = true;
-        }
+        startTime = System.currentTimeMillis();
     }
 
     public int getSolutionRate() {
@@ -144,20 +140,23 @@ public class CalculationGenerator {
         return solutionRate;
     }
 
-    public void setOperationModeRandom(){
-        operationMode="Random";
-    }
-    public void setOperationModeAddition(){
-        operationMode="Addition";
-    }
-    public void setOperationModeSubstraction(){
-        operationMode="Substraction";
-    }
-    public void setOperationModeMultiplication(){
-        operationMode="Multiplication";
+    public void setOperationModeRandom() {
+        operationMode = "Random";
     }
 
-    public void setOperationModeDivision(){
-        operationMode="Division";
+    public void setOperationModeAddition() {
+        operationMode = "Addition";
+    }
+
+    public void setOperationModeSubstraction() {
+        operationMode = "Substraction";
+    }
+
+    public void setOperationModeMultiplication() {
+        operationMode = "Multiplication";
+    }
+
+    public void setOperationModeDivision() {
+        operationMode = "Division";
     }
 }

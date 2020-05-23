@@ -11,7 +11,7 @@ public class Main {
         boolean stayInLoop = true;
         Scanner scanner = new Scanner(System.in);
         CalculationGenerator generator = new CalculationGenerator();
-        int noOfRemainingCalculations = generator.getNoOfRemainingCalculations();
+
         while (true) {
             System.out.println("SELECT OPERATION MODE:");
             System.out.println("1=random 2=addition 3=substraction 4=multiplication 5=division");
@@ -43,6 +43,7 @@ public class Main {
             // GET INITIAL QUESTION
             generator.generateNewCalculation();
 
+            int noOfRemainingCalculations = generator.getNoOfRemainingCalculations();
 
             while (noOfRemainingCalculations > 0) {
                 System.out.println(generator.getQuestionstring());
