@@ -22,7 +22,6 @@ public class CalculationGenerator {
     //--------------------------------------------------------------------------
     private int remainingCalculations = noOfCalculations;
 
-
     public void generateNewCalculation() {
 
         if (operationMode.equals("Random")) {
@@ -40,7 +39,6 @@ public class CalculationGenerator {
         if (operationMode.equals("Division")) {
             generateDivision();
         }
-
     }
 
     private void generateCalculationByRandom() {
@@ -64,6 +62,10 @@ public class CalculationGenerator {
     public void setNoOfCalculations(String noOfCalculations) {
         this.noOfCalculations = Integer.parseInt(noOfCalculations);
         this.remainingCalculations = this.noOfCalculations;
+    }
+
+    public void setNoOfErrorsZero(){
+        this.noOfErrors=0;
     }
 
     private void generateAddition() {
