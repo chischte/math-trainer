@@ -11,21 +11,43 @@ public class CalculationGenerator {
     private long startTime = 0;
     private boolean stopwatchStarted = false;
     private String questionString = "";
+    private String operationMode="Random";
 
     // CONFIGURE THE TASK: ---------------------------
-    private int noOfCalculations = 20; // default: 20
+    private int noOfCalculations = 10; // default: 20
     private int maxAddendMaxSum = 100; // default: 100
     private int maxMinuendMaxSubstrahend = 100; // default: 100
     private int maxFactor = 10; // default: 10
     private int maxDividendMaxQuotient = 10; // default: 10
     //--------------------------------------------------------------------------
-
     private int remainingCalculations = noOfCalculations;
 
+
+
     public void generateNewCalculation() {
+
+        if(operationMode.equals("Random")){
+            generateCalculationByRandom();
+        }
+        if(operationMode.equals("Addition")){
+            generateAddition();
+        }
+        if(operationMode.equals("Substraction")){
+            generateSubstraction();
+        }
+        if(operationMode.equals("Multiplication")){
+            generateMultiplication();
+        }
+        if(operationMode.equals("Division")){
+            generateDivision();
+        }
+
+    }
+
+    private void generateCalculationByRandom(){
         int noOfOperations = 4;
         int operation = random.nextInt(noOfOperations);
-        //operation = 2;
+        operation = 2;
 
         if (operation == 0) {
             generateAddition();
@@ -39,6 +61,11 @@ public class CalculationGenerator {
         if (operation == 3) {
             generateDivision();
         }
+    }
+
+    public void setNoOfCalculations(String noOfCalculations){
+        this.noOfCalculations=Integer.parseInt(noOfCalculations);
+        this.remainingCalculations=this.noOfCalculations;
     }
 
     private void generateAddition() {
@@ -117,5 +144,20 @@ public class CalculationGenerator {
         return solutionRate;
     }
 
+    public void setOperationModeRandom(){
+        operationMode="Random";
+    }
+    public void setOperationModeAddition(){
+        operationMode="Addition";
+    }
+    public void setOperationModeSubstraction(){
+        operationMode="Substraction";
+    }
+    public void setOperationModeMultiplication(){
+        operationMode="Multiplication";
+    }
 
+    public void setOperationModeDivision(){
+        operationMode="Division";
+    }
 }
